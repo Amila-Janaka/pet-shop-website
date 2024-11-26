@@ -1,6 +1,6 @@
 import React from "react";
 import ImageComponent from "./Image";
-import image1 from "../assets/image1.png"
+import logo from "../assets/logo.jpeg"
 import { CiSearch } from "react-icons/ci";
 // import { FaRegUserCircle } from "react-icons/fa";
 import { IoMdCart } from "react-icons/io";
@@ -17,7 +17,7 @@ const Header = () => {
                 <div className="">
                     <Link to={"/"}>
                         <ImageComponent
-                            src={image1}
+                            src={logo}
                             alt="A cute pet"
                             className="pet-image"
                             style={{ width: '60px', height: '50px' }}

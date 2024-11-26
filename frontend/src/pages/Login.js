@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import LoginIcon from "../assets/image1.png"
 import { IoEyeSharp } from "react-icons/io5";
 import { IoMdEyeOff } from "react-icons/io";
 import { Link } from "react-router-dom";
+import logo from "../assets/logo.jpeg"
 
 
 const Login = () => {
@@ -69,7 +69,7 @@ const Login = () => {
 
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img src={LoginIcon} alt="login-icon" className="w-40 h-40 mx-auto" />
+                    <img src={logo} alt="login-icon" className="w-40 h-40 mx-auto" />
                     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
                 </div>
 
