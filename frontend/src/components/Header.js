@@ -14,26 +14,32 @@ const Header = () => {
     return (
         <header className="header h-16 shadow-md bg-gray-700">
             <div className="h-full container-fluid mx-auto flex items-center px-10 justify-between">
-                <div className="">
-                    <Link to={"/"}>
-                        <ImageComponent
-                            src={logo}
-                            alt="A cute pet"
-                            className="pet-image"
-                            style={{ width: '60px', height: '50px' }}
-                        />
-                    </Link>
-
-                </div>
-
-                <div className="hidden lg:flex items-center w-full justify-between max-w-sm border rounded-full focus-within:shadow-lg pl-2 ">
-                    <input type="text" placeholder="Search Products Here..." className="w-full outline-none text-white bg-transparent" />
-                    <div className="text-lg min-w-[50px] h-8 bg-gray-700 flex items-center justify-center rounded-r-full text-white">
-                        <CiSearch />
+                <div className=" flex items-center w-full  max-w-screen-sm">
+                    <div>
+                        <Link to={"/"}>
+                            <ImageComponent
+                                src={logo}
+                                alt="A cute pet"
+                                className="pet-image rounded-xl mr-10"
+                                style={{ width: '60px', height: '50px' }}
+                            />
+                        </Link>
                     </div>
+                    <div className="hidden lg:flex w-full border rounded-full focus-within:shadow-lg pl-2">
+                        <input type="text" placeholder="Search Products Here..." className="w-full outline-none text-white bg-transparent" />
+                        <div className="text-lg min-w-[50px] h-8 bg-gray-700 flex items-center justify-center rounded-r-full text-white">
+                            <CiSearch />
+                        </div>
+                    </div>
+
+
                 </div>
 
-                
+                <div className="    ">
+
+                </div>
+
+
 
                 <div className="flex gap-7">
 

@@ -8,92 +8,67 @@ import logo from "../assets/logo.jpeg"
 const Login = () => {
 
     const [showPassword, setShowPassword] = useState(false)
+    const [data, setData] = useState({
+        email: "",
+        password: ""
+    })
+
+    const handleOnChange = (e) => {
+        const { name, value } = e.target
+
+        setData((preve) => {
+            return {
+                ...preve,
+                [name]: value
+            }
+        })
+    }
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
+    console.log(data, "Login data");
 
     return (
         <section id="login">
-            {/* <div className="mx-auto container p-6">
-
-                <div className="bg-slate-800 p-6 m-6 w-full max-w-xl mx-auto border border-black rounded-md">
-                    <div className="w-20 h-20 py-2 mx-auto">
-                        <img src={LoginIcon} alt="login-icon" />
-                    </div>
-
-                    <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 mt-10">
-                        <div className="grid">
-                            <label className="block text-gray-700 text-sm font-bold">Email  </label>
-                            <div className="bg-slate-100 my-2 rounded-md">
-                                <input type="email" placeholder="Enter Your Email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                            </div>
-                        </div>
-                        <div>
-                            <label className="block text-gray-700 text-sm font-bold mb-1">Password : </label>
-                            <div className="flex items-baseline">
-                                <input type={showPassword ? "text" : "password"} placeholder="Enter Your Password" className="shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none " />
-
-                                <span className="text-xl px-2 cursor-pointer" onClick={() =>
-                                    setShowPassword((preve) => !preve)
-                                }>
-                                    {
-                                        showPassword ?
-                                            (
-                                                <IoMdEyeOff />
-                                            )
-                                            :
-                                            (
-                                                <IoEyeSharp />
-                                            )
-                                    }
-                                </span>
-
-                            </div>
-                            <p className="mt-2 text-red hover:underline hover:text-red-400 ">
-                                <Link to={"/forgotPassword"} >
-                                    Forgot Password ?
-                                </Link>
-                            </p>
-
-                        </div>
-                        <div className="mt-2">
-                            <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-1 px-4 border border-blue-500 hover:border-transparent rounded mx-auto block">
-                                Login
-                            </button>
-                        </div>
-                    </form>
-                    <p className="text-white">Don't have account ?
-                        <Link to={"/signIn"} className=" text-red-400 hover:text-red-700 hover:underline"> SingIn</Link>
-                    </p>
-                </div>
-
-            </div> */}
-
-
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
                 <div class="sm:mx-auto sm:w-full sm:max-w-sm">
-                    <img src={logo} alt="login-icon" className="w-40 h-40 mx-auto" />
+                    <img src={logo} alt="login-icon" className="w-40 h-40 mx-auto rounded-xl" />
                     <h2 class="mt-10 text-center text-2xl/9 font-bold tracking-tight text-white">Sign in to your account</h2>
                 </div>
 
                 <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-                    <form class="space-y-6" action="#" method="POST">
+
+                    <form class="space-y-6" onSubmit={handleSubmit}>
                         <div>
+
+                            {/* email  */}
                             <label for="email" class="block text-sm/6 font-medium text-white">Email address</label>
                             <div class="mt-2">
-                                <input id="email" name="email" type="email" autocomplete="email" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    placeholder="Enter your email here.."
+                                    onChange={handleOnChange}
+                                    value={data.email}
+                                    autocomplete="email"
+                                    required class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                                />
                             </div>
-                        </div>
 
-                        <div>
-                            <div class="flex items-center justify-between">
-                                <label for="password" class="block text-sm/6 font-medium text-white">Password</label>
-                                <div class="text-sm">
-                                    <Link to={"/forgotPassword"} class="font-semibold text-yellow-500 hover:text-yellow-400">
-                                        Forgot password?
-                                    </Link>
-
-                                </div>
-                            </div>
+                            {/* password */}
+                            <label for="password" class="block text-sm/6 font-medium text-white mt-4">Password</label>
                             <div class="mt-2 flex items-center">
-                                <input id="password" name="password" type={showPassword ? "text" : "password"} autocomplete="current-password" required class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6" />
+                                <input
+                                    id="password"
+                                    name="password"
+                                    placeholder="Enter your password here.."
+                                    onChange={handleOnChange}
+                                    value={data.password}
+                                    type={showPassword ? "text" : "password"}
+                                    autocomplete="current-password"
+                                    required class="block w-full rounded-md border-0 p-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm/6"
+                                />
                                 <span className="text-xl px-2 cursor-pointer text-white" onClick={() =>
                                     setShowPassword((preve) => !preve)
                                 }>
@@ -109,6 +84,9 @@ const Login = () => {
                                     }
                                 </span>
                             </div>
+                            <Link to={"/forgotPassword"} class="mt-2 text-sm font-semibold text-yellow-500 hover:text-yellow-400 flex justify-end">
+                                Forgot password?
+                            </Link>
                         </div>
 
                         <div>
@@ -116,7 +94,7 @@ const Login = () => {
                         </div>
                     </form>
 
-                    <p class="mt-10 text-center text-sm/6 text-gray-500">
+                    <p class="mt-8 text-center text-sm/6 text-gray-500">
                         Not a member?
                         <Link to={"/signIn"} class="font-semibold text-yellow-500 hover:text-yellow-400"> Create Account</Link>
                     </p>
